@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Atendimento extends Model
 {
-    use HasFactory;
+    public function paciente() {
+        return $this->belongsTo(Paciente::class);
+    }
+
+    public function servico() {
+        return $this->belongsTo(Servico::class);
+    }
+
 }

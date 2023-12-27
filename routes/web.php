@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\ServicoController;
+use App\Http\Controllers\AtendimentoController;
+use App\Models\Atendimento;
 use App\Models\Paciente;
 use App\Models\Servico;
 
@@ -27,4 +29,6 @@ Route::get('/meusservicos', [ServicoController::class, 'index']);
 Route::get('/servicos/create', [ServicoController::class, 'create']);
 Route::post('/servicos', [ServicoController::class, 'store']);
 
-Route::resource('atendimentos', 'AtendimentoController');
+Route::get('/atendimentos/show', [AtendimentoController::class, 'index']);
+Route::get('/atendimento/create', [AtendimentoController::class, 'create']);
+Route::post('/atendimentos', [AtendimentoController::class, 'store']);

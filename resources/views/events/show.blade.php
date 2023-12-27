@@ -19,7 +19,7 @@
                 <p class="paciente-tutor">Tutor: {{ $paciente->tutor }}</p>
                 <p class="paciente-telefone">Contato: {{ $paciente->telefone }}</p>
             </div>
-            <a href="#" class="btn btn-primary">Fazer atendimento</a>
+            <a href="/atendimento/create" class="btn btn-primary">Fazer atendimento</a>
 
 
         </div>

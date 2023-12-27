@@ -68,6 +68,7 @@ class PacienteController extends Controller
           return view('events.show', ['paciente' => $paciente]);
      
      }
+     
 
 }
     
