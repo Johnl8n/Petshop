@@ -14,12 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\ServicoController;
 use App\Models\Paciente;
+use App\Models\Servico;
 
 Route::get('/', [PacienteController::class, 'index']);
 Route::get('/pacientes/create', [PacienteController::class, 'create']);
 Route::get('/pacientes/{id}', [PacienteController::class, 'show']);
 Route::post('/pacientes', [PacienteController::class, 'store']);
 
-Route::resource('servicos', 'ServicoController');
+Route::get('/meusservicos', [ServicoController::class, 'index']);
+Route::get('/servicos/create', [ServicoController::class, 'create']);
+Route::post('/servicos', [ServicoController::class, 'store']);
+
 Route::resource('atendimentos', 'AtendimentoController');

@@ -5,13 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paciente;
 
+use function Laravel\Prompts\search;
+
 class PacienteController extends Controller
 {
    public function index() {
 
-        $pacientes = Paciente::all();
+     $search = request('search');
 
-        return view('pacientes', ['pacientes' => $pacientes]);
+     if ($search) {
+          
+          $pacientes = Paciente::where([
+               ['nome', 'like', '%' . $search . '%']
+          ])->get();
+
+     }else{
+          $pacientes = Paciente::all();
+     }
+     
+     return view('pacientes', ['pacientes' => $pacientes, 'search' => $search]);
 
         // $pacientes = Paciente::all();
         // return view('pacientes.index', compact('pacientes'));

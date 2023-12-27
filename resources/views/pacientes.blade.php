@@ -7,14 +7,19 @@
 
 <div id="search-container" class="col-md-12">
   <h5>Buscar paciente</h5>
-  <form action="">
+  <form action="/" method="GET">
     <input type="text" id="search" name="search" class="form-control" placeholder="Buscar...">
   </form>
 </div>
 
 <div id="pacientes-container" class="col-md-12">
+  @if($search)
+    <h2>Buscado por: {{$search}} </h2>
+  @else
   <h2>Aucientes</h2>
+  <!-- <a href="/pacientes/create" class="btn btn-dark mb-3">Adicionar novo Paciente</a> -->
   <p class="subtitle">Veja todos os pacientes cadastrados</p>
+  @endif
   <div id="cards-container" class="row">
     @foreach ($pacientes as $paciente)
       <div class="card col-md-3">
