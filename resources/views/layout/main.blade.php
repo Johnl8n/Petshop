@@ -12,6 +12,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
 </head>
+    <nav class="navbar bg-">
+        <div class="logo">
+            <a href="/">
+                <img src="/img/petlogo.png" alt="">
+            </a>
+        </div>
+        <div class="menu">
+            <a href="/pacientes/create" class="btn btn-primary" id="button-nav">Cadastrar Paciente</a>
+            <a href="/meusservicos" class="btn btn-primary m-2" id="button-nav">Serviços</a>
+            <a href="/atendimentos/show" class="btn btn-primary" id="button-nav">Atendimentos</a>
+        </div>
+
+    </nav>
 <body>
     @yield('content')
     <footer>

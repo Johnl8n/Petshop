@@ -4,6 +4,7 @@
 
 @section('content')
 <link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/resources/css/show.css">
 
     <div class="col-md-10 offset-md-1">
         <div class="row">
@@ -19,7 +20,14 @@
                 <p class="paciente-tutor">Tutor: {{ $paciente->tutor }}</p>
                 <p class="paciente-telefone">Contato: {{ $paciente->telefone }}</p>
             </div>
-            <a href="/atendimento/create" class="btn btn-primary">Fazer atendimento</a>
+            <a href="/atendimento/create" class="btn btn-primary ml-2 mr-4" id="atender">Antender Pet</a>
+            <form method="POST" action="/paciente/delete/{{ $paciente->id }}">
+                 @csrf
+                 @method('DELETE')
+                <button type="submit" class="btn btn-danger mr-4 color-red">Deletar Pet</button>
+            </form>
+            <a href="" class="btn btn-warning">Editar Pet</a>
+
 
 
         </div>

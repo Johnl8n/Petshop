@@ -29,4 +29,25 @@ class ServicoController extends Controller
         return redirect('/meusservicos');
    }
 
+   public function destroy($id) {
+        Servico::findOrFail($id)->delete();
+        return redirect('/meusservicos');
+   }
+
+    public function editar($id) {
+          $servico = Servico::findOrFail($id);
+          return view('events.editarServicos', ['servico' => $servico]);
+    }
+
+    public function atualizar(Request $request, $id) {
+        // dd($request->all());
+        $servico = Servico::findOrFail($id);
+        $servico->nome = $request->nome;
+        $servico->valor = $request->valor;
+        $servico->descricao = $request->descricao;
+        $servico->save();
+        
+        return redirect('/meusservicos');
+    }
+
 }

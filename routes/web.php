@@ -24,10 +24,16 @@ Route::get('/', [PacienteController::class, 'index']);
 Route::get('/pacientes/create', [PacienteController::class, 'create']);
 Route::get('/pacientes/{id}', [PacienteController::class, 'show']);
 Route::post('/pacientes', [PacienteController::class, 'store']);
+Route::post('/pacientes', [PacienteController::class, 'store']);
+Route::delete('/paciente/delete/{id}', [PacienteController::class, 'destroy']);
 
 Route::get('/meusservicos', [ServicoController::class, 'index']);
 Route::get('/servicos/create', [ServicoController::class, 'create']);
 Route::post('/servicos', [ServicoController::class, 'store']);
+Route::patch('/servico/editar/{id}', [ServicoController::class, 'editar']);
+Route::patch('/servico/atualizar/{id}', [ServicoController::class, 'atualizar']);
+Route::delete('/servico/delete/{id}', [ServicoController::class, 'destroy']);
+
 
 Route::get('/atendimentos/show', [AtendimentoController::class, 'index']);
 Route::get('/atendimento/create', [AtendimentoController::class, 'create']);

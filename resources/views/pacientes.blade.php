@@ -26,9 +26,11 @@
         <img src="/img/paciente/{{ $paciente->image }}" alt="{{ $paciente->nome }}">
         <div class="card-body">
           <h5 class="card-nome"> {{ $paciente->nome }} </h5>
-          <p class="card-raca"> {{ $paciente->raca }} </p>
-          <p class="card-tutor"> {{ $paciente->tutor }} </p>
-          <a href="/pacientes/{{ $paciente->id }}" class="btn btn-primary"> Saber mais</a>
+          <p class="card-raca"> Raça: {{ $paciente->raca }} </p>
+          <p class="card-tutor"> Tutor: {{ $paciente->tutor }} </p>
+          <div class="btn">
+            <a href="/pacientes/{{ $paciente->id }}" class="btn btn-primary" id="btn-pacientes-show"> Saber mais</a>
+          </div>
         </div>
       </div>
     @endforeach

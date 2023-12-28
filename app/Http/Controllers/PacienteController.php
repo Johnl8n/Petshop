@@ -68,6 +68,11 @@ class PacienteController extends Controller
           return view('events.show', ['paciente' => $paciente]);
      
      }
+
+     public function destroy($id) {
+          Paciente::findOrFail($id)->delete();
+          return redirect('/');
+     }
      
 
 }

@@ -13,6 +13,29 @@ header {
     border-bottom: 1px solid #ccc;
 }
 
+nav img {
+    width: 100px;
+    height: 100px;
+}
+
+nav {
+    background-color: #694993;
+}
+
+/* show page */
+
+
+#button-nav {
+    background-color: #b668ff;
+    border: none;
+    color: #fff;
+}
+
+#button-nav:hover {
+    background-color: #9f65eb;
+    border: none;
+}
+
 .row {
     margin: 0;
 }
@@ -22,8 +45,8 @@ header {
 }
 
 .btn-primary {
-    background-color: #b9aacd;
-    border: #9f65eb;
+    background-color:  #9f65eb;
+    border: #b9aacd;
 }
 
 .btn-primary:hover {
@@ -104,6 +127,7 @@ header {
 
 #pacientes-container .card img {
     max-width: 100%;
+    max-height: 150px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
@@ -182,4 +206,36 @@ footer p {
 
 #image-container img {
     border-radius: 10px;
+}
+
+
+
+#card-body-servico form button{
+    float: right;
+    margin: 4%;
+}
+
+#btn-pacientes-show {
+    position: absolute;
+    margin-top: 4rem;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+#btn-servico {
+    /* position: absolute;
+    bottom: 1rem;
+    right: 1rem; */
+    /* bottom: 2rem; */
+}
+
+.btn-servicos {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#card-body-servico {
+    padding-bottom: 40px;
+    margin-bottom: 20px;
 }

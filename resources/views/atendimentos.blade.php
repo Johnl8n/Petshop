@@ -11,20 +11,21 @@
     <div id="cards-container" class="row">
         @foreach ($atendimentos as $atendimento)
             <div class="card col-md-3">
-                <img src="/img/pet's.jpg" alt="">
+                <img src="/img/paciente/{{ $atendimento->paciente->image }}" alt="">
                 <div class="card-body">
                     <h5 class="card-nome">
                         <i class="fas fa-user"></i> {{ $atendimento->paciente->nome }}
                     </h5>
                     <p class="card-raca">
-                        <i class="fas fa-paw"></i> {{ $atendimento->servico->nome }}
+                        <i class="fas fa-paw">Serviço: </i> {{ $atendimento->servico->nome }}
                     </p>
                     <p class="card-raca">
-                        <i class="fas fa-paw"></i> {{ $atendimento->paciente->tutor }}
+                        <i class="fas fa-paw">Tutor: </i> {{ $atendimento->paciente->tutor }}
                     </p>
                     <p class="card-raca">
-                        <i class="fas fa-paw"></i> {{ $atendimento->status }}
+                        <i class="fas fa-paw">Status: </i> {{ $atendimento->status }}
                     </p>
+                    <a href="" class="btn btn-primary">Concluido</a>
 
                 </div>
             </div>
