@@ -25,10 +25,10 @@
                     <p class="card-raca">
                         <i class="fas fa-paw">Status: </i> {{ $atendimento->status }}
                     </p>
-                    <form method="POST" action="/atendimento/status/{{ $atendimento->id }}">
+                    <form method="POST" action="/atendimento/delete/{{ $atendimento->id }}">
                         @csrf
-                        @method('PATCH')
-                        <button type="submit" class="btn btn-primary">Concluído</button>
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-success mr-4 color-red">Atendimento Concluido</button>
                     </form>
                 </div>
             </div>

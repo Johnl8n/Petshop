@@ -47,6 +47,12 @@ class AtendimentoController extends Controller
     
         return redirect()->back(); // Redireciona de volta à página de atendimentos
     }
+
+    public function destroy($id) {
+        Atendimento::findOrFail($id)->delete();
+        
+        return redirect('/atendimentos/show');
+    }
     
 
 }

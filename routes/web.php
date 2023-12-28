@@ -40,3 +40,4 @@ Route::get('/atendimentos/show', [AtendimentoController::class, 'index']);
 Route::get('/atendimento/create', [AtendimentoController::class, 'create']);
 Route::post('/atendimentos', [AtendimentoController::class, 'store']);
 Route::patch('/atendimento/status/{atendimento}', [AtendimentoController::class, 'updateStatus']);
+Route::delete('/atendimento/delete/{id}', [AtendimentoController::class, 'destroy']);
