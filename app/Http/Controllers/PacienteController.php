@@ -64,7 +64,7 @@ class PacienteController extends Controller
 
 // No controller
      public function show($id){
-          $paciente = Paciente::find($id);
+          $paciente = Paciente::findOrFail($id);
           return view('events.show', ['paciente' => $paciente]);
      
      }
@@ -73,6 +73,25 @@ class PacienteController extends Controller
           Paciente::findOrFail($id)->delete();
           return redirect('/');
      }
+
+     public function editar($id) {
+          $paciente = Paciente::findOrFail($id);
+          return view('events.editarPaciente', ['paciente' => $paciente]);
+    }
+
+    public function atualizar(Request $request, $id) {
+        $paciente = Paciente::findOrFail($id);
+        $paciente->nome = $request->nome;
+        $paciente->raca = $request->raca;
+        $paciente->especie = $request->especie;
+        $paciente->sexo = $request->sexo;
+        $paciente->descricao = $request->descricao;
+        $paciente->tutor = $request->tutor;
+        $paciente->telefone = $request->telefone;
+        $paciente->save();
+        
+        return redirect('/');
+    }
      
 
 }

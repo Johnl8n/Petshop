@@ -35,4 +35,18 @@ class AtendimentoController extends Controller
           return redirect('/atendimentos/show');
     }
 
+    public function updateStatus(Request $request, $atendimentoId)
+    {
+        $atendimento = Atendimento::findOrFail($atendimentoId);
+        $atendimento->update(['status' => 'concluido']);
+    
+        // Move o atendimento para o final da lista no banco de dados
+        Atendimento::orderBy('id', 'desc')->get()->each(function ($atendimento, $index) {
+            $atendimento->update(['status' => $index + 1]);
+        });
+    
+        return redirect()->back(); // Redireciona de volta à página de atendimentos
+    }
+    
+
 }

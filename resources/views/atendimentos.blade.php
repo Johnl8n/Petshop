@@ -25,8 +25,11 @@
                     <p class="card-raca">
                         <i class="fas fa-paw">Status: </i> {{ $atendimento->status }}
                     </p>
-                    <a href="" class="btn btn-primary">Concluido</a>
-
+                    <form method="POST" action="/atendimento/status/{{ $atendimento->id }}">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="btn btn-primary">Concluído</button>
+                    </form>
                 </div>
             </div>
         @endforeach

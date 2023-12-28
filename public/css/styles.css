@@ -65,6 +65,11 @@ nav {
     height: 50px;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 #navbar a {
     font-size: 14px;
     color: #fff;

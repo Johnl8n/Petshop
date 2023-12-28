@@ -26,10 +26,11 @@
                  @method('DELETE')
                 <button type="submit" class="btn btn-danger mr-4 color-red">Deletar Pet</button>
             </form>
-            <a href="" class="btn btn-warning">Editar Pet</a>
-
-
-
+            <form method="POST" action="/paciente/editar/{{ $paciente->id }}">
+                @csrf
+                @method('PATCH')
+                <button type="submit" class="btn btn-warning" id="btn-servico">Editar</button>
+            </form>
         </div>
     </div>
 

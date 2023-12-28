@@ -17,6 +17,7 @@
             <a href="/">
                 <img src="/img/petlogo.png" alt="">
             </a>
+            <h1>PetMania</h1>
         </div>
         <div class="menu">
             <a href="/pacientes/create" class="btn btn-primary" id="button-nav">Cadastrar Paciente</a>
