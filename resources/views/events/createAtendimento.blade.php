@@ -10,13 +10,8 @@
         <form action="/atendimentos" method="POST">
             @csrf
             <div class="form-group">
-                <label for="nome">Nome: </label>
-                <select name="nome" class="form-control" id="nome">
-                    <option value="0">Nomes</option>
-                    @foreach ($pacientes as $paciente)
-                        <option value="{{ $paciente->id }}"> {{ $paciente->nome }} -- {{ $paciente->tutor }} </option>
-                    @endforeach
-                </select>
+                <!-- <label for="nome">Nome: </label> -->
+                <input type="hidden" name="paciente_id" value="{{ request('id') }}">
             </div>
             <div class="form-group">
                 <label for="servico">Serviço: </label>

@@ -15,5 +15,6 @@ class Atendimento extends Model
     public function servico() {
         return $this->belongsTo(Servico::class);
     }
+
  
 }

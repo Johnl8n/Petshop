@@ -27,7 +27,22 @@
 
     </nav>
 <body>
-    @yield('content')
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                @if (session ('msg'))
+                    <p class="msgfail"> {{ session('msg') }} </p>
+                @endif
+                @if (session ('concluido'))
+                    <p class="msgconcluido"> {{ session('concluido') }} </p>
+                @endif
+                @if (session ('editar'))
+                    <p class="msgeditar"> {{ session('editar') }} </p>
+                @endif
+                @yield('content')
+            </div>
+        </div>
+    </main>
     <footer>
         <p>PetMania &copy; 2023</p>
     </footer>

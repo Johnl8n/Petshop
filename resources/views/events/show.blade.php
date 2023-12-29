@@ -20,7 +20,7 @@
                 <p class="paciente-tutor">Tutor: {{ $paciente->tutor }}</p>
                 <p class="paciente-telefone">Contato: {{ $paciente->telefone }}</p>
             </div>
-            <a href="/atendimento/create" class="btn btn-primary ml-2 mr-4" id="atender">Antender Pet</a>
+            <a href="/atendimento/create?id={{ $paciente->id }}" class="btn btn-primary ml-2 mr-4" id="atender">Atender Pet</a>
             <form method="POST" action="/paciente/delete/{{ $paciente->id }}">
                  @csrf
                  @method('DELETE')

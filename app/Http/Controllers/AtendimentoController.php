@@ -26,13 +26,13 @@ class AtendimentoController extends Controller
    }
 
     public function store(Request $request) {
-          $atendimento = new Atendimento;
-          $atendimento->paciente_id = $request->nome;
-          $atendimento->servico_id = $request->servico;
+        $atendimento = new Atendimento;
+        $atendimento->paciente_id = $request->paciente_id;
+        $atendimento->servico_id = $request->servico;
     
-          $atendimento->save();
+        $atendimento->save();
     
-          return redirect('/atendimentos/show');
+        return redirect('/atendimentos/show');
     }
 
     public function updateStatus(Request $request, $atendimentoId)
@@ -40,17 +40,16 @@ class AtendimentoController extends Controller
         $atendimento = Atendimento::findOrFail($atendimentoId);
         $atendimento->update(['status' => 'concluido']);
     
-        // Move o atendimento para o final da lista no banco de dados
         Atendimento::orderBy('id', 'desc')->get()->each(function ($atendimento, $index) {
             $atendimento->update(['status' => $index + 1]);
         });
     
-        return redirect()->back(); // Redireciona de volta à página de atendimentos
+        return redirect()->back();
     }
 
     public function destroy($id) {
         Atendimento::findOrFail($id)->delete();
-        
+
         return redirect('/atendimentos/show');
     }
     

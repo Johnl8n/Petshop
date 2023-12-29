@@ -59,7 +59,7 @@ class PacienteController extends Controller
 
         $paciente->save();
         
-        return redirect('/')->with('msg', 'Cadastro realizado com sucesso!');
+        return redirect('/')->with('concluido', 'Cadastro realizado com sucesso!');
    }
 
 // No controller
@@ -69,9 +69,22 @@ class PacienteController extends Controller
      
      }
 
-     public function destroy($id) {
-          Paciente::findOrFail($id)->delete();
-          return redirect('/');
+     // public function destroy($id) {
+     //      Paciente::findOrFail($id)->delete();
+     //      return redirect('/');
+     // }
+
+     public function destroy($id) 
+     {
+         $paciente = Paciente::findOrFail($id);
+ 
+         if ($paciente->atendimentos()->count() > 0) {
+             return redirect('/')->with('msg', 'Não é possível excluir o paciente. Ele está sendo atendido.');
+         }
+ 
+         $paciente->deleteWithAtendimentos();
+ 
+         return redirect('/')->with('concluido', 'Paciente excluído com sucesso.');
      }
 
      public function editar($id) {
@@ -90,7 +103,8 @@ class PacienteController extends Controller
         $paciente->telefone = $request->telefone;
         $paciente->save();
         
-        return redirect('/');
+        return redirect('/')->with('editar', 'Paciente editado.');
+
     }
      
 
